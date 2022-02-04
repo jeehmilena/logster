@@ -7,9 +7,17 @@ import RegisterPage from './components/pages/RegisterPage'
 import ForgetPasswordPage from './components/pages/ForgetPasswordPage'
 import HomePage from './components/pages/HomePage'
 
+import Amplify from 'aws-amplify'
+import config from './aws-exports'
+
+import { withAuthenticator } from '@aws-amplify/ui-react'
+import '@aws-amplify/ui-react/styles.css'
+
 import './App.css'
 
-export default function App() {
+Amplify.configure(config)
+
+const App = () => {
     return (
         <Router>
             <div>
@@ -43,3 +51,5 @@ const FooterStyle = {
     width: "100%",
     opacity: ".5"
 }
+
+export default withAuthenticator(App)
