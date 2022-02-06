@@ -1,20 +1,26 @@
 {
-  "dev": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-logster-dev-05849-authRole",
-      "UnauthRoleArn": "arn:aws:iam::557834885256:role/amplify-logster-dev-05849-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::557834885256:role/amplify-logster-dev-05849-authRole",
-      "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-logster-dev-05849-deployment",
-      "UnauthRoleName": "amplify-logster-dev-05849-unauthRole",
-      "StackName": "amplify-logster-dev-05849",
-      "StackId": "arn:aws:cloudformation:us-east-1:557834885256:stack/amplify-logster-dev-05849/9e6471e0-8555-11ec-9c32-0e72790b6507",
-      "AmplifyAppId": "dlby07ajusa4e"
-    },
-    "categories": {
-      "auth": {
-        "logster96184351": {}
-      }
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-logster-dev-05849-authRole",
+            "UnauthRoleArn": "arn:aws:iam::557834885256:role/amplify-logster-dev-05849-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::557834885256:role/amplify-logster-dev-05849-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-logster-dev-05849-deployment",
+            "UnauthRoleName": "amplify-logster-dev-05849-unauthRole",
+            "StackName": "amplify-logster-dev-05849",
+            "StackId": "arn:aws:cloudformation:us-east-1:557834885256:stack/amplify-logster-dev-05849/9e6471e0-8555-11ec-9c32-0e72790b6507",
+            "AmplifyAppId": "dlby07ajusa4e"
+        },
+        "categories": {
+            "auth": {
+                "logster96184351": {}
+            },
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "dlby07ajusa4e",
+                    "type": "cicd"
+                }
+            }
+        }
     }
-  }
 }
