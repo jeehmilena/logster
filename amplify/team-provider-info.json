@@ -1,23 +1,32 @@
 {
+    "staging": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-amplify9c701b59c6134-staging-151150-authRole",
+            "UnauthRoleArn": "arn:aws:iam::557834885256:role/amplify-amplify9c701b59c6134-staging-151150-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::557834885256:role/amplify-amplify9c701b59c6134-staging-151150-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-amplify9c701b59c6134-staging-151150-deployment",
+            "UnauthRoleName": "amplify-amplify9c701b59c6134-staging-151150-unauthRole",
+            "StackName": "amplify-amplify9c701b59c6134-staging-151150",
+            "StackId": "arn:aws:cloudformation:us-east-1:557834885256:stack/amplify-amplify9c701b59c6134-staging-151150/46c44520-8828-11ec-a87c-0a224562a663"
+        }
+    },
     "dev": {
         "awscloudformation": {
-            "AuthRoleName": "amplify-logster-dev-05849-authRole",
-            "UnauthRoleArn": "arn:aws:iam::557834885256:role/amplify-logster-dev-05849-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::557834885256:role/amplify-logster-dev-05849-authRole",
+            "AuthRoleName": "amplify-logster-dev-210429-authRole",
+            "UnauthRoleArn": "arn:aws:iam::557834885256:role/amplify-logster-dev-210429-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::557834885256:role/amplify-logster-dev-210429-authRole",
             "Region": "us-east-1",
-            "DeploymentBucketName": "amplify-logster-dev-05849-deployment",
-            "UnauthRoleName": "amplify-logster-dev-05849-unauthRole",
-            "StackName": "amplify-logster-dev-05849",
-            "StackId": "arn:aws:cloudformation:us-east-1:557834885256:stack/amplify-logster-dev-05849/9e6471e0-8555-11ec-9c32-0e72790b6507",
-            "AmplifyAppId": "dlby07ajusa4e"
+            "DeploymentBucketName": "amplify-logster-dev-210429-deployment",
+            "UnauthRoleName": "amplify-logster-dev-210429-unauthRole",
+            "StackName": "amplify-logster-dev-210429",
+            "StackId": "arn:aws:cloudformation:us-east-1:557834885256:stack/amplify-logster-dev-210429/b5f6b360-8922-11ec-8164-0af4d4178c6b",
+            "AmplifyAppId": "d3dsfjpo0d33xt"
         },
         "categories": {
-            "auth": {
-                "logster96184351": {}
-            },
             "hosting": {
                 "amplifyhosting": {
-                    "appId": "dlby07ajusa4e",
+                    "appId": "d3dsfjpo0d33xt",
                     "type": "cicd"
                 }
             }
