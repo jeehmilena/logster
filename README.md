@@ -1,84 +1,76 @@
-# Logster - login/register-page-app
+# Amplify 
 
-> Simple login/register-page-app created with React js.
+> Aplicação simples para desenvolvimento do trabalho de CLOUD ARCHITECTURE & DEVOPS - FIAP com os seguintes objetivos: 
+> 
+> - a realização da autenticação e autorização utilizando [Cognito](https://aws.amazon.com/pt/cognito/);
+> - hospedagem da aplicação utilizando [Amplify](https://aws.amazon.com/pt/amplify/);
+> - pipeline de entrega continua(CICD) no Amplify
 
-Logster is a React app that has a Login, Register and Reset password features. This is just the Front-end of the app, no Back-end.
+### Como realizar o deploy da aplicação utilizando Amplify
 
-## Table of contents
-* [Functionalities](#functionalities)
-* [Technologies](#technologies)
-* [Live App](#live-app)
-* [Packages & Libraries](#packages-&-libraries)
-* [Contributing](#contributing)
-* [Support](#support)
-* [Final Words](#final-words)
-* [License](#license)
+1. Faça o clone desse repoistório para um diretório local em sua máquina;
 
-## Functionalities
+2. Crie um novo repositório em sua conta pessoal no GitHub;
 
-* Login with username and password
-* Create an account
-* Reset password
+3. Feito isso é necessário que voce crie uma chave SSH para que você possa acessar sua conta através do Cloud9
+ - Como criar sua chave ssh no [linux](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent);
+ - Como adicionar sua chave no [GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account);
 
-## Technologies
+4. Para os passos seguintes é necessário que você possua algum conhecimento com o [Cloud9](https://aws.amazon.com/pt/cloud9/) pois é ele quem será usado como IDE para que possamos estar realizando a nossa hospedagem e CICD;
 
-* React js
-* HTML5
-* CSS3
+5. O próximo passo é subir o projeto que está local na sua máquina para o repositório criado, para isso realize os seguintes comandos: 
 
-## Live App
+  ``` shell
+   git init
+   git add -A
+   git commit -m "first commit"
+   git remote add origin git@github.com:SEU-USUARIO/postgram.git
+   git push origin master
+   ```
 
-To view and test the app you can visit this [link](https://logsterapp.netlify.com/).
+6. Inicie a criação do hosting no S3 com o comando `amplify hosting add`
+   -  Em 'Select the plugin module to execute ' selecione `Hosting with Amplify Console (Managed hosting with custom domains, Continuous deployment)`;
+  
+ -  Em 'Choose a type' selecione `Continuous deployment (Git-based deployments)`;
 
-## Packages & Libraries
+   -  Nesse passo deixe o terminal como esta e vá para outra aba no painel do amplify e entre no seu projeto `postagram` e selecione a aba `Hosting Environments`;
+   
+   - Selecione o GitHub e clique em `Connect branch` na lateral inferior direita;
 
-* [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+   -  Autorize o amplify a acessar seu github, selecione o projeto `postagram` e a branch `master`. Clique em next;
 
-## Contributing
+   -  Escolha o `environment` `dev`;
 
-Pull requests are welcome. Please feel free to submit an issue first to discuss what you would like to change.
+   -  Habilite a opção `Enable full-stack continuous deployments (CI/CD)`;
+  
+ - Clique em `Create new role`, isso vai abrir uma nova aba onde apenas tem que clicar em next até criar a role necessária. Após o processo volte ao amplify e selecione a role criada. Caso ela não apareça na lista, clique em `Refresh existing roles`. Clique em Next;
 
-The process to start is simple, just make sure you have [Node js](https://nodejs.org/en/) installed in your computer. 
 
-First you need to go to project's main directory which contains package.json file
+   -  Revise as informações e clique em `Save and Deploy`. Isso vai criar um primeiro deploy. Pode ignorar ele por hora;
+ 
+7. Volte ao Cloud9 e pressione enter no terminal que estava aguardando;
 
-```bash
-    git clone [Repository]
+8. Execute os seguintes comandos para atualizar o github e executar o pipeline do projeto para adicionar o host do S3 diretamente via pipeline.
 
-    cd [Repository-Directory]
-
-    npm install
-
-    npm start
 ```
-or
-```bash
-    git clone [Repository]
+  git status
+  git add -A
+  git status
+  git commit -m "adding hosting"
+  git push origin master
+  ```
 
-    cd [Repository-Directory]
+9. Devolta ao console do amplify poderá ver que um pipeline iniciou a partir do push para o github que acabou de fazer. Caso ainda esteja rodando o pipeline de quando criou a configuração, apenas aguarde;
 
-    yarn install
+10. Você pode acompanhar cada fase clicando nela. E expandindo o log;
 
-    yarn start
-```
-.. happy Coding..!!
+11. Durante o processo de build do frontend o pipeline vai rodar o `npm build` e fazer o upload dos artefatoas para o S3;
 
+12. Ao final será possivel pegar o link do seu app no campo domain;
 
+13. Acesse sua aplicação via o link e utilize normalmente.
 
-## Support
-
-Reach out to me at one of the following places!
-
-- Website at <a href="https://izemspot.netlify.com" target="_blank">`izemspot.netlify.com`</a>
-- Gmail <a href="mailto:zmr.ilyas@gmail.com" target="_blank">`zmr.ilyas@gmail.com`</a>
+14. Feito o `clone` do projeto e com a sua chave SSH gerada(lembrando que a chave também deverá ser gerada através do Cloud9, utilizando o terminal da IDE), você deverá ir até a raiz do projeto com o comando `cd react-login-register-page/`
 
 
-
-## Final Words
-
-If you like the app, please give it a star. It will mean a lot for me :)
-
-## License
-
-- **[MIT license](http://opensource.org/licenses/mit-license.php)**
-- Copyright 2019 © <a href="https://izemspot.netlify.com" target="_blank">IZEMSPOT</a>.
+Obs: este projeto foi clonado a partir do [Logster](https://github.com/ilyaszm/react-login-register-page)
